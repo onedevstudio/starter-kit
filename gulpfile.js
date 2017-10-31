@@ -1,49 +1,53 @@
 'use strict'
 
-const gulp = require('gulp')
-const sequence = require('run-sequence')
-const pkg = require('./package.json')
+const {
+  task,
+  src,
+  dest,
+  watch
+} = require('gulp-named')
 
 const config = require('./config')
+const sequence = require('run-sequence')
 const isProduction = config.isProduction
 const $ = config.plugins
 
-gulp.task('eslint', () =>
-  gulp.src(['./src/scripts/**/*.js', '!node_modules/**'])
+task('eslint', () =>
+  src(['./src/scripts/**/*.js', '!node_modules/**'])
     .pipe($.eslint())
     .pipe($.eslint.format()))
 
-gulp.task('images', () =>
-  gulp.src('./src/images/**/*')
+task('images', () =>
+  src('./src/images/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
     })))
     .pipe($.size(config.size('images')))
-    .pipe(gulp.dest('./public/assets/images')))
+    .pipe(dest('./public/assets/images')))
 
-gulp.task('static', () =>
-  gulp.src('./src/static/*')
+task('static', () =>
+  src('./src/static/*')
     .pipe($.size(config.size('static')))
-    .pipe(gulp.dest('./public')))
+    .pipe(dest('./public')))
 
-gulp.task('fonts', () =>
-  gulp.src('./node_modules/font-awesome/fonts/*')
-    .pipe(gulp.dest('./public/assets/fonts')))
+task('fonts', () =>
+  src('./node_modules/font-awesome/fonts/*')
+    .pipe(dest('./public/assets/fonts')))
 
-gulp.task('templates', () =>
-  gulp.src('./src/views/*.pug')
+task('templates', () =>
+  src('./src/views/*.pug')
     .pipe($.plumber(config.plumber))
-    .pipe($.data(file => pkg))
+    .pipe($.data(file => config.pkg))
     .pipe($.pug({
       pretty: !isProduction
     }))
     .pipe($.size(config.size('templates')))
-    .pipe(gulp.dest('./public'))
+    .pipe(dest('./public'))
     .pipe($.plumber.stop()))
 
-gulp.task('scripts', ['eslint', 'scripts:vendor'], () =>
-  gulp.src(['./src/scripts/**/*.js'])
+task('scripts', ['eslint', 'scripts:vendor'], () =>
+  src(['./src/scripts/**/*.js'])
     .pipe($.plumber(config.plumber))
     .pipe($.sourcemaps.init())
     .pipe($.concat('app.js', {
@@ -54,11 +58,11 @@ gulp.task('scripts', ['eslint', 'scripts:vendor'], () =>
     .pipe($.rename('bundle.js'))
     .pipe($.sourcemaps.write())
     .pipe($.size(config.size('scripts')))
-    .pipe(gulp.dest('./public/assets/javascripts'))
+    .pipe(dest('./public/assets/javascripts'))
     .pipe($.plumber.stop()))
 
-gulp.task('scripts:vendor', () =>
-  gulp.src([
+task('scripts:vendor', () =>
+  src([
     './node_modules/jquery/dist/jquery.min.js'
   ])
     .pipe($.plumber(config.plumber))
@@ -67,11 +71,11 @@ gulp.task('scripts:vendor', () =>
     }))
     .pipe(isProduction ? $.uglify() : $.util.noop())
     .pipe($.size(config.size('scripts:vendor')))
-    .pipe(gulp.dest('./public/assets/javascripts'))
+    .pipe(dest('./public/assets/javascripts'))
     .pipe($.plumber.stop()))
 
-gulp.task('stylus', () =>
-  gulp.src('./src/stylus/app.styl')
+task('stylus', () =>
+  src('./src/stylus/app.styl')
     .pipe($.plumber(config.plumber))
     .pipe($.sourcemaps.init())
     .pipe($.stylus(config.stylus))
@@ -82,21 +86,21 @@ gulp.task('stylus', () =>
     .pipe($.rename('bundle.css'))
     .pipe($.sourcemaps.write())
     .pipe($.size(config.size('stylus')))
-    .pipe(gulp.dest('./public/assets/stylesheets'))
+    .pipe(dest('./public/assets/stylesheets'))
     .pipe($.plumber.stop()))
 
-gulp.task('webserver', () =>
-  gulp.src('./public/')
+task('webserver', () =>
+  src('./public/')
     .pipe($.webserver(config.webServer)))
 
-gulp.task('stream', () => {
-  gulp.watch(['./src/views/**/*'], ['scripts', 'stylus', 'templates'])
-  gulp.watch(['./src/scripts/**/*'], ['scripts'])
-  gulp.watch(['./src/stylus/**/*'], ['stylus'])
-  gulp.watch(['./src/images/**/*'], ['images'])
+task('stream', () => {
+  watch(['./src/views/**/*'], ['scripts', 'stylus', 'templates'])
+  watch(['./src/scripts/**/*'], ['scripts'])
+  watch(['./src/stylus/**/*'], ['stylus'])
+  watch(['./src/images/**/*'], ['images'])
 })
 
-gulp.task('build', (cb) =>
+task('build', (cb) =>
   sequence(['static', 'templates', 'stylus', 'scripts', 'images', 'fonts'], cb))
 
-gulp.task('default', (cb) => sequence('build', 'stream', ['webserver'], cb))
+task('default', (cb) => sequence('build', 'stream', ['webserver'], cb))

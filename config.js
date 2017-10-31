@@ -1,5 +1,6 @@
 'use strict'
 
+const pkg = require('./package.json')
 const { join } = require('path')
 const loadPlugins = require('gulp-load-plugins')
 const jeet = require('jeet')
@@ -10,6 +11,7 @@ const isProduction = env === 'production'
 const $ = loadPlugins()
 
 module.exports = {
+  pkg,
   isProduction,
   plugins: $,
   stylus: {

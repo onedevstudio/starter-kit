@@ -56,6 +56,7 @@
     "gulp-eslint": "^4.0.0",
     "gulp-imagemin": "^3.3.0",
     "gulp-load-plugins": "^1.5.0",
+    "gulp-named": "^1.0.0",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.3.0",
