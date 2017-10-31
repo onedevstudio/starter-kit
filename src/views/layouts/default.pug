@@ -1,0 +1,16 @@
+doctype html
+html(lang='pt-br')
+  head
+    include ../includes/head.pug
+    block stylesheets
+      link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700,800,900', rel='stylesheet')
+      link(rel='stylesheet', href='./assets/stylesheets/bundle.css')
+  body
+    include ../includes/header.pug
+    main
+      block content
+    include ../includes/footer.pug
+    block scripts
+      script(src='./assets/javascripts/vendor.js')
+      script(src='./assets/javascripts/bundle.js')
+

@@ -1,0 +1,43 @@
+.button
+  display inline-block
+  text-align center
+  text-decoration none
+  letter-spacing .05em
+  white-space nowrap
+  font-weight 900
+  cursor pointer
+  border 2px solid transparent
+  transition background-color .1s ease-in-out,
+    border-color .1s ease-in-out,
+    color .1s ease-in-out,
+    box-shadow .1s ease-in-out,
+    transform .1s ease-in-out
+  font-size 16px
+  padding 0 toRem(20px)
+  line-height 38px
+  border-radius 3px
+  margin spacingSmall
+  &:hover
+    transform translate3d(0, -2px, 0)
+  &:active
+    transform translate3d(0, 2px, 0)
+  &--default
+    color warmGreyColor
+    background-color transparent
+    border-color warmGreyColor
+    &:hover,
+    &:active,
+    &:focus
+      background-color warmGreyColor
+      border-color warmGreyColor
+      color whiteColor
+  &--primary
+    background-color deepSkyBlueColor
+    border-color deepSkyBlueColor
+    color whiteColor
+    &:hover,
+    &:active,
+    &:focus
+      color deepSkyBlueColor
+      background-color transparent
+      border-color deepSkyBlueColor

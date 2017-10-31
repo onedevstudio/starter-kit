@@ -1,0 +1,41 @@
+
+meta(charset='UTF-8')
+meta(http-equiv='content-language', content='pt-br')
+meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui')
+meta(http-equiv='X-UA-Compatible', content='ie=edge')
+
+title=title + ' | ' + description
+
+meta(name='description', content=description)
+meta(name='robots', content='index,follow')
+meta(http-equiv='cache-control', content='cache')
+
+// See: http://www.metatags.org/meta_http_equiv_cache_control
+meta(http-equiv='revisit-after', content='1 day')
+
+// See: http://www.metatags.org/meta_name_revisit_after
+// Web Application Manifest
+link(rel='manifest', href='manifest.json')
+
+// FACEBOOK:start
+meta(property='og:title', content=title)
+meta(property='og:type', content='website')
+meta(property='og:url', content=homepage+'/')
+meta(property='og:image', content=homepage+'/image.jpg')
+meta(property='og:description', content=description)
+meta(property='og:site_name', content='Site Name')
+meta(property='fb:admins', content='Facebook numeric ID')
+// FACEBOOK:end
+
+// Schema.org markup for Google+
+meta(itemprop='name', content='Starter Kit')
+meta(itemprop='description', content=description)
+
+// TWITTER:start
+meta(name='twitter:card', content='summary_large_image')
+meta(name='twitter:site', content='@publisher_handle')
+meta(name='twitter:title', content=title)
+meta(name='twitter:description', content=description)
+meta(name='twitter:creator', content='@author_handle')
+meta(name='twitter:image:src', content=homepage+'/image.jpg')
+// TWITTER:end

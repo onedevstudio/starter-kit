@@ -1,0 +1,81 @@
+{
+  "name": "starter-kit",
+  "version": "0.0.1",
+  "title": "Starter Kit",
+  "description": "A simple front-end starter-kit with Babel, Gulpjs, Pug and Stylus",
+  "main": "gulp.js",
+  "scripts": {
+    "pretest": "eslint .",
+    "clean": "rimraf public",
+    "build": "npm run clean && NODE_ENV=production gulp build",
+    "start": "npm run clean && NODE_ENV=production gulp",
+    "dev": "npm run clean && NODE_ENV=development gulp",
+    "deploy": "npm run build && push-dir --dir=public --branch=gh-pages --cleanup --force",
+    "test": "echo 'no has test! lol'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onedevstudio/starter-kit.git"
+  },
+  "keywords": [
+    "starter-kit",
+    "starter",
+    "kit",
+    "babel",
+    "es6",
+    "stylus",
+    "gulp",
+    "gulpjs"
+  ],
+  "author": "Fernando Moreira <nandomoreira.me@gmail.com> (https://nandomoreira.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onedevstudio/starter-kit/issues"
+  },
+  "homepage": "https://github.com/onedevstudio/starter-kit#readme",
+  "engines": {
+    "node": ">=8"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^4.10.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-cache": "^0.4.6",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-data": "^1.2.1",
+    "gulp-eslint": "^4.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-stylus": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "gulp-webserver": "^0.9.1",
+    "jeet": "^7.2.0",
+    "push-dir": "^0.4.1",
+    "rimraf": "^2.6.2",
+    "run-sequence": "^2.2.0",
+    "rupture": "^0.6.2",
+    "stylus": "^0.54.5"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "normalize.css": "^7.0.0"
+  }
+}
