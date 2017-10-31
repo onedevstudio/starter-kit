@@ -9,6 +9,7 @@ const {
 
 const config = require('./config')
 const sequence = require('run-sequence')
+const wbBuild = require('workbox-build')
 const assign = require('lodash.assign')
 const isProduction = config.isProduction
 const $ = config.plugins
@@ -88,14 +89,21 @@ task('stylus', () =>
     .pipe(dest(config.dest.stylesheets))
     .pipe($.plumber.stop()))
 
-task('generate-service-worker', () =>
-  src([`${config.dest.public}/**/*`])
-    .pipe($.serviceworker({
-      rootDir: config.dest.public
-    })))
+/* eslint no-useless-escape: 0  */
+task('generate-service-worker', () => wbBuild.generateSW({
+  globDirectory: config.dest.public,
+  swDest: `${config.dest.public}/sw.js`,
+  globPatterns: ['**\/*.{html,js,css}']
+})
+  .then(() => {
+    console.log('Service worker generated.')
+  })
+  .catch((err) => {
+    console.log('[ERROR] This happened: ' + err)
+  }))
 
 task('webserver', () =>
-  src('./public/')
+  src(config.dest.public)
     .pipe($.webserver(config.webServer)))
 
 task('stream', () => {

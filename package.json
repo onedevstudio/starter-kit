@@ -62,7 +62,6 @@
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-serviceworker": "^0.0.3",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-stylus": "^2.6.0",
@@ -76,7 +75,8 @@
     "rimraf": "^2.6.2",
     "run-sequence": "^2.2.0",
     "rupture": "^0.6.2",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "workbox-build": "^2.1.0"
   },
   "dependencies": {
     "jquery": "^3.2.1",
