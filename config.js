@@ -19,6 +19,20 @@ module.exports = {
   isProduction,
   plugins: $,
   fileHash,
+  src: {
+    stylus: './src/stylus',
+    scripts: './src/scripts',
+    views: './src/views',
+    static: './src/static',
+    images: './src/images'
+  },
+  dest: {
+    public: './public',
+    stylesheets: './public/assets/stylesheets',
+    javascripts: './public/assets/javascripts',
+    images: './public/assets/images',
+    fonts: './public/assets/fonts'
+  },
   stylus: {
     'include css': true,
     include: [

@@ -19,22 +19,22 @@ task('eslint', () =>
     .pipe($.eslint.format()))
 
 task('images', () =>
-  src('./src/images/**/*')
+  src(`${config.src.images}/**/*`)
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
     })))
     .pipe($.size(config.size('images')))
-    .pipe(dest('./public/assets/images')))
+    .pipe(dest(config.dest.images)))
 
 task('static', () =>
-  src('./src/static/*')
+  src(`${config.src.static}/*`)
     .pipe($.size(config.size('static')))
-    .pipe(dest('./public')))
+    .pipe(dest(config.dest.public)))
 
 task('fonts', () =>
   src('./node_modules/font-awesome/fonts/*')
-    .pipe(dest('./public/assets/fonts')))
+    .pipe(dest(config.dest.fonts)))
 
 task('templates', () =>
   src('./src/views/*.pug')
@@ -44,11 +44,11 @@ task('templates', () =>
       pretty: !isProduction
     }))
     .pipe($.size(config.size('templates')))
-    .pipe(dest('./public'))
+    .pipe(dest(config.dest.public))
     .pipe($.plumber.stop()))
 
 task('scripts', ['eslint', 'scripts:vendor'], () =>
-  src(['./src/scripts/**/*.js'])
+  src([`${config.src.scripts}/**/*.js`])
     .pipe($.plumber(config.plumber))
     .pipe($.sourcemaps.init())
     .pipe($.concat('app.js', {
@@ -59,24 +59,22 @@ task('scripts', ['eslint', 'scripts:vendor'], () =>
     .pipe($.rename(`bundle${config.fileHash}.js`))
     .pipe($.sourcemaps.write())
     .pipe($.size(config.size('scripts')))
-    .pipe(dest('./public/assets/javascripts'))
+    .pipe(dest(config.dest.javascripts))
     .pipe($.plumber.stop()))
 
 task('scripts:vendor', () =>
-  src([
-    './node_modules/jquery/dist/jquery.min.js'
-  ])
+  src(['./node_modules/jquery/dist/jquery.min.js'])
     .pipe($.plumber(config.plumber))
     .pipe($.concat(`vendor${config.fileHash}.js`, {
       newLine: ''
     }))
     .pipe(isProduction ? $.uglify() : $.util.noop())
     .pipe($.size(config.size('scripts:vendor')))
-    .pipe(dest('./public/assets/javascripts'))
+    .pipe(dest(config.dest.javascripts))
     .pipe($.plumber.stop()))
 
 task('stylus', () =>
-  src('./src/stylus/app.styl')
+  src(`${config.src.stylus}/app.styl`)
     .pipe($.plumber(config.plumber))
     .pipe($.sourcemaps.init())
     .pipe($.stylus(config.stylus))
@@ -87,7 +85,7 @@ task('stylus', () =>
     .pipe($.rename(`bundle${config.fileHash}.css`))
     .pipe($.sourcemaps.write())
     .pipe($.size(config.size('stylus')))
-    .pipe(dest('./public/assets/stylesheets'))
+    .pipe(dest(config.dest.stylesheets))
     .pipe($.plumber.stop()))
 
 task('webserver', () =>
@@ -95,10 +93,11 @@ task('webserver', () =>
     .pipe($.webserver(config.webServer)))
 
 task('stream', () => {
-  watch(['./src/views/**/*'], ['scripts', 'stylus', 'templates'])
-  watch(['./src/scripts/**/*'], ['scripts'])
-  watch(['./src/stylus/**/*'], ['stylus'])
-  watch(['./src/images/**/*'], ['images'])
+  watch([`${config.src.views}/**/*`], ['templates'])
+  watch([`${config.src.scripts}/**/*`], ['scripts'])
+  watch([`${config.src.stylus}/**/*`], ['stylus'])
+  watch([`${config.src.images}/**/*`], ['images'])
+  watch([`${config.src.static}/**/*`], ['static'])
 })
 
 task('build', (cb) =>
