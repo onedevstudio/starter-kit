@@ -88,6 +88,12 @@ task('stylus', () =>
     .pipe(dest(config.dest.stylesheets))
     .pipe($.plumber.stop()))
 
+task('generate-service-worker', () =>
+  src([`${config.dest.public}/**/*`])
+    .pipe($.serviceworker({
+      rootDir: config.dest.public
+    })))
+
 task('webserver', () =>
   src('./public/')
     .pipe($.webserver(config.webServer)))
@@ -101,6 +107,6 @@ task('stream', () => {
 })
 
 task('build', (cb) =>
-  sequence(['static', 'templates', 'stylus', 'scripts', 'images', 'fonts'], cb))
+  sequence(['static', 'templates', 'stylus', 'scripts', 'images', 'fonts'], ['generate-service-worker'], cb))
 
 task('default', (cb) => sequence('build', 'stream', ['webserver'], cb))
