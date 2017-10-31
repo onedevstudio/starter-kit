@@ -9,6 +9,7 @@ const {
 
 const config = require('./config')
 const sequence = require('run-sequence')
+const assign = require('lodash.assign')
 const isProduction = config.isProduction
 const $ = config.plugins
 
@@ -38,7 +39,7 @@ task('fonts', () =>
 task('templates', () =>
   src('./src/views/*.pug')
     .pipe($.plumber(config.plumber))
-    .pipe($.data(file => config.pkg))
+    .pipe($.data(file => assign({ fileHash: config.fileHash }, config.pkg)))
     .pipe($.pug({
       pretty: !isProduction
     }))
@@ -55,7 +56,7 @@ task('scripts', ['eslint', 'scripts:vendor'], () =>
     }))
     .pipe($.babel())
     .pipe(isProduction ? $.uglify() : $.util.noop())
-    .pipe($.rename('bundle.js'))
+    .pipe($.rename(`bundle${config.fileHash}.js`))
     .pipe($.sourcemaps.write())
     .pipe($.size(config.size('scripts')))
     .pipe(dest('./public/assets/javascripts'))
@@ -66,7 +67,7 @@ task('scripts:vendor', () =>
     './node_modules/jquery/dist/jquery.min.js'
   ])
     .pipe($.plumber(config.plumber))
-    .pipe($.concat('vendor.js', {
+    .pipe($.concat(`vendor${config.fileHash}.js`, {
       newLine: ''
     }))
     .pipe(isProduction ? $.uglify() : $.util.noop())
@@ -83,7 +84,7 @@ task('stylus', () =>
       beautify: true
     }))
     .pipe(isProduction ? $.cssnano(config.cssnano) : $.util.noop())
-    .pipe($.rename('bundle.css'))
+    .pipe($.rename(`bundle${config.fileHash}.css`))
     .pipe($.sourcemaps.write())
     .pipe($.size(config.size('stylus')))
     .pipe(dest('./public/assets/stylesheets'))
