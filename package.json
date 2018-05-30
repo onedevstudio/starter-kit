@@ -1,6 +1,6 @@
 {
   "name": "starter-kit",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "title": "Starter Kit",
   "description": "A simple front-end starter-kit with Babel, Gulpjs, Pug and Stylus",
   "homepage": "https://starter-kit.netlify.com",
