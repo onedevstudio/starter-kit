@@ -1,7 +1,5 @@
 ![Starter Kit](/src/images/share.png)
 
-> A simple front-end starter-kit with Babel, Gulpjs, Pug and Stylus
-
 ## Installation
 
 ```bash
