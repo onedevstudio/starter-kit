@@ -35,5 +35,5 @@ meta(name='twitter:description', content=description)
 meta(name='twitter:creator', content='@' + author.twitter)
 meta(name='twitter:image:src', content=homepage + '/assets/images/share.jpg')
 
-block stylesheets
-  link(rel='stylesheet', href='./assets/stylesheets/bundle' + fileHash + '.css')
+style
+  include ../includes/bundle.css

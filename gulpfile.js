@@ -15,7 +15,10 @@ const isProduction = config.isProduction
 const $ = config.plugins
 
 task('eslint', () =>
-  src(['./src/scripts/**/*.js', '!node_modules/**'])
+  src([
+    './src/scripts/**/*.js',
+    '!node_modules/**'
+  ])
     .pipe($.eslint())
     .pipe($.eslint.format()))
 
@@ -42,7 +45,7 @@ task('fonts', () =>
 task('templates', () =>
   src('./src/views/*.pug')
     .pipe($.plumber(config.plumber))
-    .pipe($.data(file => assign({ fileHash: config.fileHash }, config.pkg)))
+    .pipe($.data(file => assign({ fileHash: config.fileHash, isProduction }, config.pkg)))
     .pipe($.pug({
       pretty: !isProduction
     }))
@@ -86,16 +89,16 @@ task('scripts:vendor', () =>
 task('stylus', () =>
   src(`${config.src.stylus}/app.styl`)
     .pipe($.plumber(config.plumber))
-    .pipe($.sourcemaps.init())
+    // .pipe($.sourcemaps.init())
     .pipe($.stylus(config.stylus))
     .pipe($.combineMq({
       beautify: true
     }))
     .pipe(isProduction ? $.cssnano(config.cssnano) : $.util.noop())
-    .pipe($.rename(`bundle${config.fileHash}.css`))
-    .pipe($.sourcemaps.write())
+    // .pipe($.sourcemaps.write())
+    .pipe($.rename(`bundle.css`))
     .pipe($.size(config.size('stylus')))
-    .pipe(dest(config.dest.stylesheets))
+    .pipe(dest(`${config.src.views}/includes`))
     .pipe($.plumber.stop()))
 
 /* eslint no-useless-escape: 0  */
@@ -125,12 +128,13 @@ task('stream', () => {
 
 task('build', (cb) =>
   sequence([
-    'static',
-    'templates',
     'stylus',
     'scripts',
     'images',
     'fonts'
+  ], [
+    'templates',
+    'static'
   ], [
     'generate-service-worker'
   ], cb))
