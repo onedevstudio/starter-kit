@@ -1,4 +1,4 @@
-![Starter Kit](/src/images/share.png)
+![Starter Kit](/src/images/share.png?v=1)
 
 ## Installation
 
