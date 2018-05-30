@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "title": "Starter Kit",
   "description": "A simple front-end starter-kit with Babel, Gulpjs, Pug and Stylus",
-  "homepage": "https://starter-kit.netlify.com",
+  "homepage": "https://starter-kit.onedev.studio",
   "main": "gulpfile.js",
   "scripts": {
     "pretest": "eslint .",
