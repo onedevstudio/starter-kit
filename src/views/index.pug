@@ -1,9 +1,9 @@
-extends layouts/default.pug
+extends layouts/blank.pug
 block content
-  .container
-    p.lead
-      span=description
-      a.button.button--default(href='./demo-markup.html')
-        | Demo markup →
-      a.button.button--primary(href='https://github.com/onedevstudio/starter-kit', target='_blank')
-        | Download
+  main.hero
+    .hero__inner
+      h1=title
+      p.lead
+        span=description
+        a.button.button--primary(href=repository.url target='_blank')
+          | Download

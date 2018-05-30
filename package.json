@@ -6,16 +6,15 @@
   "main": "gulpfile.js",
   "scripts": {
     "pretest": "eslint .",
-    "clean": "rimraf public",
-    "build": "npm run clean && NODE_ENV=production gulp build",
-    "start": "npm run clean && NODE_ENV=production gulp",
+    "clean": "rimraf dist",
+    "build": "npm run clean && gulp build",
+    "start": "npm run clean && gulp",
     "dev": "npm run clean && NODE_ENV=development gulp",
-    "deploy": "npm run build && push-dir --dir=public --branch=gh-pages --cleanup --force",
     "test": "echo 'no has test! lol'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/onedevstudio/starter-kit.git"
+    "url": "https://github.com/onedevstudio/starter-kit.git"
   },
   "keywords": [
     "starter-kit",
@@ -27,12 +26,17 @@
     "gulp",
     "gulpjs"
   ],
-  "author": "Fernando Moreira <nandomoreira.me@gmail.com> (https://nandomoreira.me)",
+  "author": {
+    "name": "Fernando Moreira",
+    "email": "nandomoreira.me@gmail.com",
+    "site": "https://nandomoreira.me/about",
+    "twitter": "oseunando"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/onedevstudio/starter-kit/issues"
   },
-  "homepage": "https://github.com/onedevstudio/starter-kit#readme",
+  "homepage": "http://starter-kit.onedev.studio",
   "engines": {
     "node": ">=8"
   },
@@ -71,7 +75,6 @@
     "gulp-webserver": "^0.9.1",
     "jeet": "^7.2.0",
     "lodash.assign": "^4.2.0",
-    "push-dir": "^0.4.1",
     "rimraf": "^2.6.2",
     "run-sequence": "^2.2.0",
     "rupture": "^0.6.2",

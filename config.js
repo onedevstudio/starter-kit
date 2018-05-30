@@ -1,5 +1,3 @@
-'use strict'
-
 const pkg = require('./package.json')
 const { join } = require('path')
 const loadPlugins = require('gulp-load-plugins')
@@ -7,7 +5,7 @@ const crypto = require('crypto')
 const jeet = require('jeet')
 const rupture = require('rupture')
 
-const env = process.env.NODE_ENV || 'development'
+const env = process.env.NODE_ENV || 'production'
 const isProduction = env === 'production'
 const $ = loadPlugins()
 
@@ -27,11 +25,11 @@ module.exports = {
     images: './src/images'
   },
   dest: {
-    public: './public',
-    stylesheets: './public/assets/stylesheets',
-    javascripts: './public/assets/javascripts',
-    images: './public/assets/images',
-    fonts: './public/assets/fonts'
+    dist: './dist',
+    stylesheets: './dist/assets/stylesheets',
+    javascripts: './dist/assets/javascripts',
+    images: './dist/assets/images',
+    fonts: './dist/assets/fonts'
   },
   stylus: {
     'include css': true,

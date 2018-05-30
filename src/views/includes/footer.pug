@@ -1,2 +1,6 @@
 footer.footer
-  small= title + ' - ' + description
+  small
+    = title + ' - ' + description
+    = ' | designed and development by '
+    a(href=author.site target='_blank' title='by ' + author.name)=author.name
+include ../includes/scripts.pug

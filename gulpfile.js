@@ -31,10 +31,12 @@ task('images', () =>
 task('static', () =>
   src(`${config.src.static}/*`)
     .pipe($.size(config.size('static')))
-    .pipe(dest(config.dest.public)))
+    .pipe(dest(config.dest.dist)))
 
 task('fonts', () =>
-  src('./node_modules/font-awesome/fonts/*')
+  src([
+    './node_modules/font-awesome/fonts/*'
+  ])
     .pipe(dest(config.dest.fonts)))
 
 task('templates', () =>
@@ -44,8 +46,15 @@ task('templates', () =>
     .pipe($.pug({
       pretty: !isProduction
     }))
+    .pipe($.rename(path => {
+      if (path.basename !== 'index') {
+        path.dirname = path.basename
+        path.basename = 'index'
+      }
+      path.extname = '.html'
+    }))
     .pipe($.size(config.size('templates')))
-    .pipe(dest(config.dest.public))
+    .pipe(dest(config.dest.dist))
     .pipe($.plumber.stop()))
 
 task('scripts', ['eslint', 'scripts:vendor'], () =>
@@ -91,8 +100,8 @@ task('stylus', () =>
 
 /* eslint no-useless-escape: 0  */
 task('generate-service-worker', () => wbBuild.generateSW({
-  globDirectory: config.dest.public,
-  swDest: `${config.dest.public}/sw.js`,
+  globDirectory: config.dest.dist,
+  swDest: `${config.dest.dist}/sw.js`,
   globPatterns: ['**\/*.{html,js,css}']
 })
   .then(() => {
@@ -103,7 +112,7 @@ task('generate-service-worker', () => wbBuild.generateSW({
   }))
 
 task('webserver', () =>
-  src(config.dest.public)
+  src(config.dest.dist)
     .pipe($.webserver(config.webServer)))
 
 task('stream', () => {
@@ -115,6 +124,15 @@ task('stream', () => {
 })
 
 task('build', (cb) =>
-  sequence(['static', 'templates', 'stylus', 'scripts', 'images', 'fonts'], ['generate-service-worker'], cb))
+  sequence([
+    'static',
+    'templates',
+    'stylus',
+    'scripts',
+    'images',
+    'fonts'
+  ], [
+    'generate-service-worker'
+  ], cb))
 
 task('default', (cb) => sequence('build', 'stream', ['webserver'], cb))

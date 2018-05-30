@@ -2,15 +2,8 @@ doctype html
 html(lang='pt-br')
   head
     include ../includes/head.pug
-    block stylesheets
-      link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700,800,900', rel='stylesheet')
-      link(rel='stylesheet', href='./assets/stylesheets/bundle' + fileHash + '.css')
-  body
+  body.default
     include ../includes/header.pug
     main
       block content
     include ../includes/footer.pug
-    block scripts
-      script(src='./assets/javascripts/vendor' + fileHash + '.js')
-      script(src='./assets/javascripts/bundle' + fileHash + '.js')
-
