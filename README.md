@@ -1,4 +1,4 @@
-![Starter Kit](/src/images/share.png?v=1)
+![Starter Kit](https://raw.githubusercontent.com/onedevstudio/starter-kit/master/src/images/share.png)
 
 ## Installation
 
