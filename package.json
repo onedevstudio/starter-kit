@@ -82,7 +82,6 @@
     "workbox-build": "^2.1.0"
   },
   "dependencies": {
-    "jquery": "^3.2.1",
-    "normalize.css": "^7.0.0"
+    "jquery": "^3.2.1"
   }
 }

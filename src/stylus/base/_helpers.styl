@@ -20,7 +20,7 @@
 .video-wrapper
   position relative
   padding-bottom 56.25%
-  padding-top 25px
+  padding-top 1.5625rem /* 25/16 */
   height 0
   object,
   embed,
@@ -30,3 +30,12 @@
     left 0
     width 100%
     height 100%
+
+p
+  &.lead
+    padding-bottom spacingLarge
+    font-size: 1.25rem /* 20/16 */
+    font-weight 300
+    span
+      margin-bottom spacingSmall
+      display block

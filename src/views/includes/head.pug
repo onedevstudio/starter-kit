@@ -5,6 +5,9 @@ meta(http-equiv='X-UA-Compatible', content='ie=edge')
 
 title=title
 
+style
+  include ../includes/bundle.css
+
 meta(name='description', content=description)
 meta(name='robots', content='index,follow')
 meta(http-equiv='cache-control', content='cache')
@@ -19,7 +22,7 @@ meta(property='og:title', content=title)
 meta(property='og:locale', content='pt_BR')
 meta(property='og:type', content='website')
 meta(property='og:url', content=homepage)
-meta(property='og:image', content=homepage + '/assets/images/share.jpg')
+meta(property='og:image', content=homepage + '/assets/images/share.png')
 meta(property='og:image:type', content='image/jpeg')
 meta(property='og:image:width', content='800')
 meta(property='og:image:height', content='600')
@@ -33,7 +36,4 @@ meta(name='twitter:site', content='@' + author.twitter)
 meta(name='twitter:title', content=title)
 meta(name='twitter:description', content=description)
 meta(name='twitter:creator', content='@' + author.twitter)
-meta(name='twitter:image:src', content=homepage + '/assets/images/share.jpg')
-
-style
-  include ../includes/bundle.css
+meta(name='twitter:image:src', content=homepage + '/assets/images/share.png')

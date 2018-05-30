@@ -9,7 +9,21 @@ body,
   align-items center
   justify-content center
   text-align center
-  h1
+  &__title
     font-weight 900
-  .lead
-    font-size 22px
+    font-size 4.625rem /* 74/16 */
+  &__lead.lead
+    font-size 1.625rem /* 26/16 */
+  small,
+  &__lead
+    opacity 0.75
+  &__title,
+  &__button
+    span,
+    svg
+      display inline-block
+      vertical-align middle
+      padding 0
+      margin 0
+    span
+      margin-left .625rem /* 10/16 */
