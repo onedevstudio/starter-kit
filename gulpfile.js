@@ -11,8 +11,17 @@ const config = require('./config')
 const sequence = require('run-sequence')
 const wbBuild = require('workbox-build')
 const assign = require('lodash.assign')
+const favicons = require('favicons').stream
 const isProduction = config.isProduction
 const $ = config.plugins
+
+const homepage = isProduction ? config.pkg.homepage : 'http://localhost:3000'
+const dataConfig = assign(config.pkg, {
+  fileHash: config.fileHash,
+  favicons: config.favicons,
+  isProduction,
+  homepage
+})
 
 task('eslint', () =>
   src([
@@ -45,7 +54,7 @@ task('fonts', () =>
 task('templates', () =>
   src('./src/views/*.pug')
     .pipe($.plumber(config.plumber))
-    .pipe($.data(file => assign({ fileHash: config.fileHash, isProduction }, config.pkg)))
+    .pipe($.data(file => dataConfig))
     .pipe($.pug({
       pretty: !isProduction
     }))
@@ -101,6 +110,12 @@ task('stylus', () =>
     .pipe(dest(`${config.src.views}/includes`))
     .pipe($.plumber.stop()))
 
+task('favicons', () =>
+  src(`${config.src.images}/icon.png`)
+    .pipe(favicons(config.favicons)).on('error', $.util.log)
+    .pipe($.size(config.size('favicons')))
+    .pipe(dest(`${config.dest.dist}${config.favicons.path}`)))
+
 /* eslint no-useless-escape: 0  */
 task('generate-service-worker', () =>
   wbBuild.generateSW({
@@ -119,7 +134,7 @@ task('webserver', () =>
   src(config.dest.dist)
     .pipe($.webserver(config.webServer)))
 
-task('stream', () => {
+task('watch', () => {
   watch([`${config.src.views}/**/*`], ['templates'])
   watch([`${config.src.scripts}/**/*`], ['scripts'])
   watch([`${config.src.stylus}/**/*`], ['stylus'])
@@ -135,10 +150,11 @@ task('build', (cb) =>
     'fonts'
   ], [
     'templates',
+    'favicons',
     'static'
   ], [
     'generate-service-worker'
   ], cb))
 
 task('default', (cb) =>
-  sequence('build', 'stream', ['webserver'], cb))
+  sequence('build', 'watch', ['webserver'], cb))

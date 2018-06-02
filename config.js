@@ -62,6 +62,24 @@ module.exports = {
     port: $.util.env.port || '3000',
     open: !!$.util.env.open
   },
+  favicons: {
+    appName: pkg.name,
+    appDescription: pkg.description,
+    developerName: pkg.author.name,
+    developerURL: pkg.author.site,
+    background: '#ffffff',
+    path: '/assets/icons/',
+    url: `${pkg.homepage}/`,
+    display: 'standalone',
+    orientation: 'portrait',
+    start_url: '/?homescreen=1',
+    version: 1.0,
+    logging: false,
+    html: 'favicons.html',
+    lang: 'pt-BR',
+    pipeHTML: true,
+    replace: true
+  },
   size: taskName => {
     return {
       title: `Task: ${taskName} -`,

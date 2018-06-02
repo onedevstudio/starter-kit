@@ -13,7 +13,9 @@ meta(name='robots', content='index,follow')
 meta(http-equiv='cache-control', content='cache')
 meta(http-equiv='revisit-after', content='1 day')
 link(rel='manifest', href=homepage + '/manifest.json')
-base(href='/')
+base(href=homepage + '/')
+
+include ../includes/favicons.pug
 
 meta(name='mobile-web-app-capable' content='yes')
 meta(name='application-name' content=title)
