@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "title": "Starter Kit",
   "description": "A simple front-end starter-kit with Babel, Gulpjs, Pug and Stylus",
-  "homepage": "https://starter-kit.onedev.studio",
+  "homepage": "https://starter-kit.netlify.com",
   "main": "gulpfile.js",
   "scripts": {
     "pretest": "eslint .",
@@ -30,7 +30,7 @@
   "author": {
     "name": "Fernando Moreira",
     "email": "nandomoreira.me@gmail.com",
-    "site": "https://nandomoreira.me/about",
+    "site": "https://nandomoreira.me",
     "twitter": "oseunando"
   },
   "license": "MIT",
