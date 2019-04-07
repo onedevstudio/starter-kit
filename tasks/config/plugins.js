@@ -1,8 +1,9 @@
 import { isProduction, siteConfig } from './base'
 import { paths } from './paths'
-const loadPlugins = require('gulp-load-plugins')
-const plugins = loadPlugins()
 
+const plugins = {}
+
+plugins.size = require('gulp-size')
 plugins.favicons = require('favicons').stream
 plugins.browserSync = require('browser-sync').create()
 
@@ -23,7 +24,7 @@ export const faviconsConfig = {
   developerName: siteConfig.author.name,
   developerURL: siteConfig.author.site,
   background: '#fff',
-  path: '/favicon/',
+  path: '/favicons/',
   url: `${siteConfig.homepage}/`,
   display: 'standalone',
   orientation: 'portrait',

@@ -14,7 +14,8 @@ import {
 } from './base'
 import {
   serviceWorker,
-  sassConfig
+  sassConfig,
+  faviconsConfig
 } from './plugins'
 
 // let libraryName = 'TrackUI'
@@ -39,7 +40,9 @@ plugins.push(new HtmlWebpackPlugin({
   template: resolve(paths.src, 'index.pug'),
   hash: true,
   cache: true,
-  templateParameters: { globals: siteConfig }
+  templateParameters: {
+    globals: { ...siteConfig, ...{ favicons: faviconsConfig } }
+  }
 }))
 
 plugins.push(new MiniCssExtractPlugin({

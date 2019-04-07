@@ -1,6 +1,8 @@
 import webpack from 'webpack'
-import { parallel } from 'gulp'
+import { series } from 'gulp'
 import { webpackConfig } from './config'
+import { favicons } from './favicons'
+import { copyFiles } from './static'
 
 const _webpack = () =>
   new Promise(resolve => webpack(webpackConfig, (err, stats) => {
@@ -9,7 +11,7 @@ const _webpack = () =>
     resolve()
   }))
 
-const _task = parallel(_webpack)
+const _task = series(_webpack, favicons, copyFiles)
 _task.description = '{{ build all scripts }}'
 
 export const build = _task
