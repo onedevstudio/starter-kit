@@ -36,6 +36,31 @@ Contributing
 4. Push to the branch: git push origin my-new-feature
 5. Submit a pull request :D
 
+## Tasks
+
+**Gulp tasks**
+
+- `gulp` ~> Build and watch files
+- `gulp watch` ~> Watch js files
+- `gulp server` ~> Watch js files and start browser sync server
+- `gulp copyFiles` ~> Copy static files
+- `gulp favicons` ~> Generate all favicons
+- `gulp build` ~> Build all files
+
+**NPM scripts**
+
+- `npm run start` ~> Starts the task `gulp server` in env production
+- `npm run prod` ~> Starts the tasks `npm run lint` and `npm run build`
+- `npm run build` ~> Starts the tasks `gulp build` in env production
+- `npm run dev` ~> Starts the tasks `gulp` in env development
+- `npm run deploy` ~> Starts the tasks `npm run prod` and run the command `netlify deploy --prod`
+- `npm run eslint` ~> Run the command `eslint .`
+- `npm run eslint:fix` ~> Run the task `npm run eslint --fix`
+- `npm run stylelint` ~> Run the command `stylelint "**/*.scss"`
+- `npm run stylelint:fix` ~> Run the task `npm run stylelint --fix`
+- `npm run lint` ~> Starts the tasks `npm run eslint` and `npm run stylelint`
+- `npm run pre-commit` ~> Start the task `npm run lint`
+
 ## History
 
 See [Releases](../../releases) for detailed changelog.
