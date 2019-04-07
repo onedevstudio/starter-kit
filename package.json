@@ -6,7 +6,6 @@
   "homepage": "https://starter-kit.netlify.com",
   "main": "gulpfile.babel.js",
   "scripts": {
-    "pretest": "eslint .",
     "start": "NODE_ENV=production gulp server",
     "prod": "npm run build",
     "build": "NODE_ENV=production gulp build",
@@ -15,7 +14,8 @@
     "eslint:fix": "npm run eslint --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "npm run stylelint --fix",
-    "test": "echo 'no has test! lol'"
+    "test": "echo 'no has test! lol'",
+    "pre-commit": "npm run eslint && npm run stylelint"
   },
   "repository": {
     "type": "git",
@@ -69,6 +69,7 @@
     "gulp": "^4.0.0",
     "gulp-load-plugins": "^1.5.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
     "lost": "^8.3.1",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",

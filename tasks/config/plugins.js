@@ -1,8 +1,4 @@
-import {
-  pkg,
-  isProduction,
-  siteConfig
-} from './base'
+import { isProduction, siteConfig } from './base'
 import { paths } from './paths'
 const loadPlugins = require('gulp-load-plugins')
 const plugins = loadPlugins()
