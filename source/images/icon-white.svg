@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="580px" height="580px" viewBox="0 0 580 580" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>icon-white</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-white" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="icon" transform="translate(40.000000, 40.000000)" stroke="#FFFFFF" stroke-width="50">
+            <path d="M60,0 L440,0 C473.137085,-6.08718376e-15 500,26.862915 500,60 L500,440 C500,473.137085 473.137085,500 440,500 L60,500 C26.862915,500 4.05812251e-15,473.137085 0,440 L0,60 C-4.05812251e-15,26.862915 26.862915,6.08718376e-15 60,0 Z" id="Rectangle-path"></path>
+            <path d="M10,164 L490,164" id="Shape"></path>
+            <path d="M161,500 L161,180" id="Shape"></path>
+        </g>
+    </g>
+</svg>

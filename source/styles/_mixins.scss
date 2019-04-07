@@ -1,0 +1,50 @@
+/*
+Usage
+
+.container {
+  width: 1200px;
+
+  @include media(min-width 480px) {
+    font-size: 1.2rem;
+  }
+
+  @include media(max-width 1200px) {
+    width: 700px;
+  }
+}
+*/
+
+$default-feature: max-width;
+
+@mixin media($query: $feature $value) {
+  @if length($query)==1 {
+    @media screen and ($default-feature: nth($query, 1)) {
+      @content;
+    }
+  }
+
+  @else {
+    $loop-to: length($query);
+    $media-query: 'screen and ';
+
+    @if length($query) % 2 !=0 {
+      $loop-to: $loop-to - 1;
+    }
+
+    $i: 1;
+
+    @while $i <=$loop-to {
+      $media-query: $media-query + '('+ nth($query, $i) + ': '+ nth($query, $i + 1) + ') ';
+
+      @if ($i + 1) !=$loop-to {
+        $media-query: $media-query + 'and ';
+      }
+
+      $i: $i+2;
+    }
+
+    @media #{$media-query} {
+      @content;
+    }
+  }
+}

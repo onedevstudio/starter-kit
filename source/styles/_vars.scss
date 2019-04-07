@@ -4,10 +4,13 @@ $whiteColor: #fff;
 $greyColor: #5b5b5b;
 $silverColor: #d8d8d8;
 $primaryColor: #0b7ff5;
-$textColor: lighten($blackColor, 15%);
-$linkColor: $primaryColor;
+// $textColor: lighten($blackColor, 15%);
+$textColor: $whiteColor;
+// $linkColor: $primaryColor;
+$linkColor: $whiteColor;
 $linkColorHover: lighten($linkColor, 10%);
-$backgroundColor: darken($whiteColor, 2%);
+// $backgroundColor: darken($whiteColor, 2%);
+$backgroundColor: $primaryColor;
 $borderColor: rgba($blackColor, .1);
 
 $fontFamilyBase: 'Open Sans', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -24,3 +27,8 @@ $borderBase: .0625rem /* 1/16 */ solid $borderColor;
 $borderRadiusBase: .25rem; /* 4/16 */
 $borderRadiusSmall: .125rem; /* 2/16 */
 $borderRadiusLarge: .375rem; /* 6/16 */
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;

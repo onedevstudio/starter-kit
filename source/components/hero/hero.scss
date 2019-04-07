@@ -1,11 +1,17 @@
 @import '../../styles/vars';
+@import '../../styles/mixins';
 
 .hero {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
+  padding: 60px 0 20px;
   text-align: center;
+
+  @include media(min-width $breakpoint-md) {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    padding: 0;
+  }
 
   &__inner {
     max-width: 1000px;
@@ -22,29 +28,55 @@
   }
 
   &__title {
-    font-size: 72px;
+    font-size: 42px;
     margin-bottom: 15px;
+
+    @include media(min-width $breakpoint-sm) {
+      font-size: 62px;
+    }
+
+    @include media(min-width $breakpoint-md) {
+      font-size: 72px;
+    }
   }
 
   &__description {
     color: rgba($textColor, .6);
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 300;
     margin-bottom: 30px;
+
+    @include media(min-width $breakpoint-md) {
+      font-size: 22px;
+    }
   }
 
   &__buttons {
     a {
-      margin: 0 10px;
+      display: inline-block;
+      margin-bottom: 5px;
+      width: 100%;
+
+      @include media(min-width $breakpoint-sm) {
+        margin-bottom: 0;
+        width: auto;
+      }
     }
   }
 
   &__footer {
-    bottom: 1.875rem /* 30/16 */;
-    left: 50%;
-    opacity: 0.75;
-    position: fixed;
-    transform: translate3d(-50%, 0, 0);
+    margin-top: 60px;
+    text-align: center;
+    width: 100%;
+
+    @include media(min-width $breakpoint-md) {
+      bottom: 1.875rem /* 30/16 */;
+      left: 50%;
+      margin-top: 0;
+      opacity: 0.75;
+      position: fixed;
+      transform: translate3d(-50%, 0, 0);
+    }
 
     small {
       color: rgba($textColor, .6);
