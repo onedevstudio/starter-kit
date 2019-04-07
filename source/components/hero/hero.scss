@@ -1,3 +1,5 @@
+@import '../../styles/vars';
+
 .hero {
   align-items: center;
   display: flex;
@@ -25,6 +27,7 @@
   }
 
   &__description {
+    color: rgba($textColor, .6);
     font-size: 22px;
     font-weight: 300;
     margin-bottom: 30px;
@@ -33,6 +36,27 @@
   &__buttons {
     a {
       margin: 0 10px;
+    }
+  }
+
+  &__footer {
+    bottom: 1.875rem /* 30/16 */;
+    left: 50%;
+    opacity: 0.75;
+    position: fixed;
+    transform: translate3d(-50%, 0, 0);
+
+    small {
+      color: rgba($textColor, .6);
+    }
+
+    a {
+      border-bottom: 1px solid $linkColor;
+      font-weight: 700;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }

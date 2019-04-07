@@ -10,3 +10,9 @@ section(class=css.hero)
       ='{{ ' + globals.description + ' }}'
     div(class=css.hero__buttons)
       include ../buttons/buttons.pug
+    footer(class=css.hero__footer)
+      small
+        ='Version: v' + globals.version + '. '
+        ='developed by '
+        a(href=globals.author.site + '?ref=' + globals.homepage target='_blank')
+          =globals.author.name
