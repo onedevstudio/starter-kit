@@ -46,7 +46,7 @@ plugins.push(new HtmlWebpackPlugin({
 }))
 
 plugins.push(new MiniCssExtractPlugin({
-  filename: 'style.[contenthash].css'
+  filename: 'styles/style.[contenthash].css'
 }))
 
 plugins.push(new OfflinePlugin(serviceWorker))
@@ -87,7 +87,13 @@ export const webpackConfig = {
       ]
     }, {
       test: /\.jpe?g$|\.gif$|\.png$|\.svg$/,
-      use: 'file-loader'
+      use: {
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images',
+          name: '[name]-[hash].[ext]'
+        }
+      }
     }, {
       test: /\.m?js$/,
       exclude: /(node_modules|bower_components)/,
