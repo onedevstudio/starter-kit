@@ -10,6 +10,7 @@
     "prod": "npm run build",
     "build": "NODE_ENV=production gulp build",
     "dev": "NODE_ENV=development gulp",
+    "deploy": "npm run prod && netlify deploy --prod",
     "eslint": "eslint .",
     "eslint:fix": "npm run eslint --fix",
     "stylelint": "stylelint \"**/*.scss\"",
