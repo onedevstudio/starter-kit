@@ -1,0 +1,53 @@
+@import '../../styles/vars';
+
+.button {
+  border: 0.125rem solid transparent;
+  border-radius: 0.1875rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 2.375rem;
+  margin: 10px;
+  padding: 0 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.1s ease-in-out,
+    border-color 0.1s ease-in-out,
+    color 0.1s ease-in-out,
+    box-shadow 0.1s ease-in-out,
+    transform 0.1s ease-in-out;
+  white-space: nowrap;
+
+  span,
+  svg {
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: middle;
+  }
+}
+
+.primary {
+  background-color: $primaryColor;
+  border-color: $primaryColor;
+  color: #fff;
+
+  &:hover {
+    background-color: darken($primaryColor, 10%);
+    border-color: darken($primaryColor, 10%);
+    color: #fff;
+  }
+}
+
+.secondary {
+  background-color: transparent;
+  border-color: $primaryColor;
+  color: $primaryColor;
+
+  &:hover {
+    background-color: $primaryColor;
+    border-color: darken($primaryColor, 15%);
+    color: #fff;
+  }
+}

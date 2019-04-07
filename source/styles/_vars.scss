@@ -1,0 +1,26 @@
+// Color palette
+$blackColor: #000;
+$whiteColor: #fff;
+$greyColor: #5b5b5b;
+$silverColor: #d8d8d8;
+$primaryColor: #0b7ff5;
+$textColor: lighten($blackColor, 15%);
+$linkColor: $primaryColor;
+$linkColorHover: lighten($linkColor, 10%);
+$backgroundColor: darken($whiteColor, 2%);
+$borderColor: rgba($blackColor, .1);
+
+$fontFamilyBase: 'Open Sans', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$fontFamilyHeading: 'Poppins', $fontFamilyBase;
+$fontFamilySerif: 'Spectral', 'Georgia', 'Times New Roman', 'Times', serif;
+
+$fontSizeBase: 16px;
+$lineHeightBase: 1.6;
+$fontWeightBase: 500;
+$letterSpacingBase: -0.05px;
+
+// Borders
+$borderBase: .0625rem /* 1/16 */ solid $borderColor;
+$borderRadiusBase: .25rem; /* 4/16 */
+$borderRadiusSmall: .125rem; /* 2/16 */
+$borderRadiusLarge: .375rem; /* 6/16 */

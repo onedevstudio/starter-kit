@@ -1,0 +1,17 @@
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='content-language', content=global.lang)
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+
+  title=globals.title
+
+  include ./_metas.pug
+
+  link(rel='author', type='text/plain', href=globals.homepage + '/humans.txt')
+  script(async src='https://www.googletagmanager.com/gtag/js?id=' + globals.ga)
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '#{globals.ga}');

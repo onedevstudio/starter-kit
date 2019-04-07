@@ -1,0 +1,11 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.enable": true,
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": true,
+  "files.exclude": {
+    "**/node_modules": false
+  }
+}

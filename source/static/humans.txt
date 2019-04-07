@@ -1,0 +1,12 @@
+/* TEAM */
+  Web developer: Fernando Moreira
+  Site: https://nandomoreira.dev
+  Email: nandomoreira.me [at] gmail.com
+  Twitter: @oseunando
+  From: Curitiba, Paraná, Brazil
+
+/* SITE */
+  Language: English
+  Doctype: HTML5
+  IDE: Visual Studio Code
+  Tech stack: Javascript, Webpack, Babel, HTML5, CSS3, SASS

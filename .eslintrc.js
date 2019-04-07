@@ -1,7 +1,3 @@
 module.exports = {
-  'extends': 'standard',
-  'globals': {
-    $: true,
-    jQuery: true
-  }
+  extends: 'standard'
 }
