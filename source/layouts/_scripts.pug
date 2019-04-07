@@ -1,6 +1,6 @@
-
 block scripts
   script.
-    (function (w) {
-      w.console.warn('Scripts loaded!');
-    })(window);
+    // Block scripts
+
+if globals.isProduction
+  script(type='text/javascript' src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c1eaed71a17af3a')
