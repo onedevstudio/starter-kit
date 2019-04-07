@@ -9,6 +9,7 @@
 - [Installation](#installation)
 - [Support](#support)
 - [Contributing](#contributing)
+- [Tasks](#tasks)
 - [History](#history)
 - [License](#license)
 
