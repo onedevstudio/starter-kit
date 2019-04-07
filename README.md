@@ -1,4 +1,4 @@
-# [Starter Kit](https://starter-kit.netlify.com/)
+# [Starter Kit](https://starter-kit.netlify.com/) [![Netlify Status](https://api.netlify.com/api/v1/badges/59489b42-daeb-4c07-af4a-158aae7ff899/deploy-status)](https://app.netlify.com/sites/starter-kit/deploys)
 
 > A simple and powerful Starter Kit made with Webpack, Gulp 4, Pug and SASS
 
