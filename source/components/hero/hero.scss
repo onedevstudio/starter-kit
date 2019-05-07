@@ -2,7 +2,7 @@
 @import '../../styles/mixins';
 
 .hero {
-  padding: 60px 0 20px;
+  padding: 3.75rem /* 60/16 */ 0 1.25rem /* 20/16 */;
   text-align: center;
 
   @include media(min-width $breakpoint-md) {
@@ -14,8 +14,8 @@
   }
 
   &__inner {
-    max-width: 1000px;
-    padding: 15px;
+    max-width: 62.5rem /* 1000/16 */;
+    padding: 0.9375rem /* 15/16 */;
   }
 
   &__icon {
@@ -23,38 +23,38 @@
     margin: 0;
 
     img {
-      width: 100px;
+      width: 6.25rem /* 100/16 */;
     }
   }
 
   &__title {
-    font-size: 42px;
-    margin-bottom: 15px;
+    font-size: 2.625rem /* 42/16 */;
+    margin-bottom: 0.9375rem /* 15/16 */;
 
     @include media(min-width $breakpoint-sm) {
-      font-size: 62px;
+      font-size: 3.875rem /* 62/16 */;
     }
 
     @include media(min-width $breakpoint-md) {
-      font-size: 72px;
+      font-size: 4.5rem /* 72/16 */;
     }
   }
 
   &__description {
     color: rgba($textColor, .6);
-    font-size: 18px;
+    font-size: 1.125rem /* 18/16 */;
     font-weight: 300;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem /* 30/16 */;
 
     @include media(min-width $breakpoint-md) {
-      font-size: 22px;
+      font-size: 1.375rem /* 22/16 */;
     }
   }
 
   &__buttons {
     a {
       display: inline-block;
-      margin-bottom: 5px;
+      margin-bottom: 0.3125rem /* 5/16 */;
       width: 100%;
 
       @include media(min-width $breakpoint-sm) {
@@ -65,7 +65,7 @@
   }
 
   &__footer {
-    margin-top: 60px;
+    margin-top: 3.75rem /* 60/16 */;
     text-align: center;
     width: 100%;
 
