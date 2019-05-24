@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "title": "Starter Kit",
   "description": "A simple and powerful Starter Kit made with Webpack, Gulp 4, Pug and SASS",
-  "homepage": "https://starter-kit.netlify.com",
+  "homepage": "https://starter-kit.nandomoreira.dev",
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "NODE_ENV=production gulp server",

@@ -1,6 +1,6 @@
-# [Starter Kit](https://starter-kit.netlify.com/)
+# [Starter Kit](https://starter-kit.nandomoreira.dev/)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/e98eec03de678dcdb610/maintainability)](https://codeclimate.com/github/onedevstudio/starter-kit/maintainability) ![GitHub](https://img.shields.io/github/license/onedevstudio/starter-kit.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/onedevstudio/starter-kit.svg) ![GitHub package.json version](https://img.shields.io/github/package-json/v/onedevstudio/starter-kit.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/59489b42-daeb-4c07-af4a-158aae7ff899/deploy-status)](https://app.netlify.com/sites/starter-kit/deploys) 
+[![Maintainability](https://api.codeclimate.com/v1/badges/e98eec03de678dcdb610/maintainability)](https://codeclimate.com/github/onedevstudio/starter-kit/maintainability) ![GitHub](https://img.shields.io/github/license/onedevstudio/starter-kit.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/onedevstudio/starter-kit.svg) ![GitHub package.json version](https://img.shields.io/github/package-json/v/onedevstudio/starter-kit.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/59489b42-daeb-4c07-af4a-158aae7ff899/deploy-status)](https://app.netlify.com/sites/starter-kit/deploys)
 
 > A simple and powerful Starter Kit made with Webpack, Gulp 4, Pug and SASS
 
