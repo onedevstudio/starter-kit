@@ -41,7 +41,7 @@ export const serviceWorker = {
   safeToUseOptionalCaches: true,
   caches: {
     main: ['index.html'],
-    additional: ['*.js?*']
+    additional: ['*.js']
   },
   navigateFallbackURL: '/',
   autoUpdate: true,

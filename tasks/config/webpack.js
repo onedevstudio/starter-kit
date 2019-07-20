@@ -18,9 +18,8 @@ import {
   faviconsConfig
 } from './plugins'
 
-// let libraryName = 'TrackUI'
-let outputFile = '[name].bundle.js'
-let plugins = []
+const outputFile = '[name].bundle.js'
+const plugins = []
 
 plugins.push(new webpack.DefinePlugin({
   VERSION: JSON.stringify(pkg.version)
