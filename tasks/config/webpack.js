@@ -1,7 +1,7 @@
 import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import CleanWebpackPlugin from 'clean-webpack-plugin'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import OfflinePlugin from 'offline-plugin'
 
 import { join, resolve } from 'path'
@@ -18,9 +18,8 @@ import {
   faviconsConfig
 } from './plugins'
 
-// let libraryName = 'TrackUI'
-let outputFile = '[name].bundle.js'
-let plugins = []
+const outputFile = '[name].bundle.js'
+const plugins = []
 
 plugins.push(new webpack.DefinePlugin({
   VERSION: JSON.stringify(pkg.version)
