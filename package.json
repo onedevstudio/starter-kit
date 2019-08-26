@@ -1,6 +1,6 @@
 {
   "name": "starter-kit",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "title": "Starter Kit",
   "description": "A simple and powerful Starter Kit made with Webpack, Gulp 4, Pug and SASS",
   "homepage": "https://starter-kit.nandomoreira.dev",
